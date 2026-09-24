@@ -23,6 +23,8 @@ namespace MIREAConfigManagment
                     continue;
 
                 input = ResolveEnvVariables(input);
+
+                Commands.CommandsEngine.Parse(input);
             }    
         }
 

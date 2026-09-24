@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="../tests/REPLTests/REPLTests.csproj" Id="24119217-f6a9-43c1-b773-d2983c59fcc1" />
   <Project Path="MIREAConfigManagment/MIREAConfigManagment.csproj" />
 </Solution>

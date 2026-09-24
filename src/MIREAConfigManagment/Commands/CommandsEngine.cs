@@ -23,6 +23,9 @@ namespace MIREAConfigManagment.Commands
                 case "cd":
                     FSCommands.Cd(args);
                     break;
+                case "exit":
+                    Environment.Exit(0);
+                    break;
                 default:
                     Console.WriteLine("Command not found");
                     break;

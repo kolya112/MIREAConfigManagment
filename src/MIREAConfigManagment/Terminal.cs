@@ -11,6 +11,9 @@ namespace MIREAConfigManagment
             Global.Hostname = Environment.MachineName;
         }
 
+        /// <summary>
+        /// Метод запуска терминала
+        /// </summary>
         internal void Start()
         {
             while (true)
@@ -28,6 +31,11 @@ namespace MIREAConfigManagment
             }    
         }
 
+        /// <summary>
+        /// Метод разрешения переменных окружения
+        /// </summary>
+        /// <param name="input">Входная строка</param>
+        /// <returns>Измененная строка</returns>
         private static string ResolveEnvVariables(string input)
         {
             return Regex.Replace(input, "\\$.*?(\\s|$)", match =>

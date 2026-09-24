@@ -4,6 +4,10 @@ namespace MIREAConfigManagment.Commands
 {
     internal class FSCommands
     {
+        /// <summary>
+        /// Метод выполнения команды ls
+        /// </summary>
+        /// <param name="args">аргументы</param>
         internal static void Ls(string[] args)
         {
             string output = "ls";
@@ -13,6 +17,10 @@ namespace MIREAConfigManagment.Commands
             Console.WriteLine(output);
         }
 
+        /// <summary>
+        /// Метод выполнения команды cd
+        /// </summary>
+        /// <param name="args">аргументы</param>
         internal static void Cd(string[] args)
         {
             string output = "cd";

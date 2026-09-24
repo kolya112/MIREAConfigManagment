@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace MIREAConfigManagment
 {
@@ -21,8 +22,16 @@ namespace MIREAConfigManagment
                 if (string.IsNullOrEmpty(input))
                     continue;
 
-
+                input = ResolveEnvVariables(input);
             }    
+        }
+
+        private static string ResolveEnvVariables(string input)
+        {
+            return Regex.Replace(input, "\\$.*?(\\s|$)", match =>
+            {
+                return Environment.GetEnvironmentVariable(match.Value) ?? "";
+            });
         }
     }
 }

@@ -35,6 +35,14 @@ namespace MIREAConfigManagment.Commands
                 case "exit":
                     Environment.Exit(0);
                     break;
+                case "echo":
+                    if (args.Length > 0)
+                        Console.WriteLine(string.Join(' ', args));
+                    break;
+                case "regvar":
+                    if (args.Length == 2)
+                        Environment.SetEnvironmentVariable(args[0], args[1]);
+                    break;
                 default:
                     Console.WriteLine("Command not found");
                     break;

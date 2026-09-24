@@ -14,12 +14,14 @@ namespace MIREAConfigManagment
         {
             while (true)
             {
-                Console.WriteLine($"{Global.Username}@{Global.Hostname}:~$");
+                Console.Write($"{Global.Username}@{Global.Hostname}:~$ ");
 
                 string? input = Console.ReadLine();
 
                 if (string.IsNullOrEmpty(input))
                     continue;
+
+
             }    
         }
     }

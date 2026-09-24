@@ -4,6 +4,10 @@ namespace MIREAConfigManagment.Commands
 {
     internal class CommandsEngine
     {
+        /// <summary>
+        /// Метод запуска командного движка: парсит входную строку
+        /// </summary>
+        /// <param name="input">входная строка</param>
         internal static void Parse(string input)
         {
             string[] commandSplit = input.Split(' ');
@@ -13,6 +17,11 @@ namespace MIREAConfigManagment.Commands
             Execute(command, args);
         }
 
+        /// <summary>
+        /// Метод определения команды и запуск выполнения при обнаружении
+        /// </summary>
+        /// <param name="command">команда</param>
+        /// <param name="args">аргументы</param>
         private static void Execute(string command, string[] args)
         {
             switch (command)

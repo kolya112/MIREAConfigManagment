@@ -38,9 +38,9 @@ namespace MIREAConfigManagment
         /// <returns>Измененная строка</returns>
         internal static string ResolveEnvVariables(string input)
         {
-            return Regex.Replace(input, "\\$.*?(\\s|$)", match =>
+            return Regex.Replace(input, "\\$([^\\s]+)", match =>
             {
-                return Environment.GetEnvironmentVariable(match.Value) ?? "";
+                return Environment.GetEnvironmentVariable(match.Groups[1].Value) ?? "";
             });
         }
     }

@@ -36,7 +36,7 @@ namespace MIREAConfigManagment
         /// </summary>
         /// <param name="input">Входная строка</param>
         /// <returns>Измененная строка</returns>
-        private static string ResolveEnvVariables(string input)
+        internal static string ResolveEnvVariables(string input)
         {
             return Regex.Replace(input, "\\$.*?(\\s|$)", match =>
             {

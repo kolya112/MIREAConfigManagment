@@ -5,7 +5,6 @@ namespace REPLTests
 {
     public class Tests
     {
-        // Обработка ввода рандомного текста на вход в командный движок
         [Fact]
         public void RandomTextCommandType()
         {
@@ -28,7 +27,6 @@ namespace REPLTests
             }
         }
 
-        // Проверка команды cd
         [Theory]
         [InlineData("cd", "cd")]
         [InlineData("cd --test-param", "cd --test-param")]
@@ -51,7 +49,6 @@ namespace REPLTests
             }
         }
 
-        // Проверка команды ls
         [Theory]
         [InlineData("ls", "ls")]
         [InlineData("ls --test-param", "ls --test-param")]
@@ -74,7 +71,6 @@ namespace REPLTests
             }
         }
 
-        // Проверка обработки переменных окружения
         [Theory]
         [InlineData("echo $TEST1", "echo 12345")]
         [InlineData("echo params $TEST1", "echo params 12345")]

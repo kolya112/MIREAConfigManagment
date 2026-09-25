@@ -10,7 +10,7 @@ namespace MIREAConfigManagment.Commands
         /// <param name="input">входная строка</param>
         internal static void Parse(string input)
         {
-            string[] commandSplit = input.Split(' ');
+            string[] commandSplit = input.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
             string command = commandSplit[0];
             string[] args = commandSplit.Skip(1).ToArray();
 

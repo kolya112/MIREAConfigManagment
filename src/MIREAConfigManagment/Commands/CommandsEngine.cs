@@ -4,6 +4,8 @@ namespace MIREAConfigManagment.Commands
 {
     internal class CommandsEngine
     {
+        private const int TWO = 2;
+
         /// <summary>
         /// Метод запуска командного движка: парсит входную строку
         /// </summary>
@@ -40,7 +42,7 @@ namespace MIREAConfigManagment.Commands
                         Console.WriteLine(string.Join(' ', args));
                     break;
                 case "regvar":
-                    if (args.Length == 2)
+                    if (args.Length == TWO)
                         Environment.SetEnvironmentVariable(args[0], args[1]);
                     break;
                 default:

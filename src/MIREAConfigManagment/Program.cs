@@ -1,4 +1,6 @@
-﻿namespace MIREAConfigManagment
+﻿using System.Text;
+
+namespace MIREAConfigManagment
 {
     internal class Program
     {
@@ -11,28 +13,36 @@
             if (args.Length > 4)
                 throw new ArgumentOutOfRangeException(nameof(args), "Ожидалось не более 4 параметров");
 
-            for (int i = 0; i < args.Length; i++)
+            if (args.Length > 0)
             {
-                string param = args[i];
+                var paramsOutputBuilder = new StringBuilder("Parameters:");
 
-                switch (i)
+                for (int i = 0; i < args.Length; i++)
                 {
-                    case 0: // VFS
-                        Global.VFSPath = param;
-                        break;
-                    case 1: // Prompt
-                        Global.Prompt = param;
-                        break;
-                    case 2: // Log-file
-                        Global.LogPath = param;
-                        break;
-                    case 3: // Startup-file
-                        if (!File.Exists(param))
-                            throw new FileNotFoundException("Указанный стартовый скрипт не найден");
+                    string param = args[i];
+                    paramsOutputBuilder.Append(" " + param);
 
-                        Global.StartupPath = param;
-                        break;
+                    switch (i)
+                    {
+                        case 0: // VFS
+                            Global.VFSPath = param;
+                            break;
+                        case 1: // Prompt
+                            Global.Prompt = param;
+                            break;
+                        case 2: // Log-file
+                            Global.LogPath = param;
+                            break;
+                        case 3: // Startup-file
+                            if (!File.Exists(param))
+                                throw new FileNotFoundException("Указанный стартовый скрипт не найден");
+
+                            Global.StartupPath = param;
+                            break;
+                    }
                 }
+
+                Console.WriteLine(paramsOutputBuilder.ToString()); // Debug вывод всех параметров
             }
 
             var terminal = new Terminal();

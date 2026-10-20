@@ -5,12 +5,6 @@ namespace MIREAConfigManagment
 {
     internal class Terminal
     {
-        public Terminal()
-        {
-            Global.Username = Environment.UserName;
-            Global.Hostname = Environment.MachineName;
-        }
-
         /// <summary>
         /// Метод запуска терминала
         /// </summary>
@@ -18,7 +12,7 @@ namespace MIREAConfigManagment
         {
             while (true)
             {
-                Console.Write($"{Global.Username}@{Global.Hostname}:~$ ");
+                Console.Write(Global.Prompt);
 
                 string? input = Console.ReadLine();
 
@@ -28,7 +22,7 @@ namespace MIREAConfigManagment
                 input = ResolveEnvVariables(input);
 
                 Commands.CommandsEngine.Parse(input);
-            }    
+            }
         }
 
         /// <summary>

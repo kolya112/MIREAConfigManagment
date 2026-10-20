@@ -5,12 +5,33 @@ namespace MIREAConfigManagment
     internal class Global
     {
         /// <summary>
-        /// Глобальное свойство для хранения имени пользователя
+        /// Имя пользователя
         /// </summary>
-        internal static string Username { get; set; }
+        internal static string Username { get; set; } = Environment.UserName;
+
         /// <summary>
-        /// Глобальное свойство для хранения имени хоста
+        /// Имя хоста
         /// </summary>
-        internal static string Hostname { get; set; }
+        internal static string Hostname { get; set; } = Environment.MachineName;
+
+        /// <summary>
+        /// Путь к VFS
+        /// </summary>
+        internal static string VFSPath { get; set; } = "\\main.vfs";
+
+        /// <summary>
+        /// Приглашение к вводу
+        /// </summary>
+        internal static string Prompt { get; set; } = $"{Username}@{Hostname}:~$ ";
+
+        /// <summary>
+        /// Путь к лог-файлу
+        /// </summary>
+        internal static string LogPath { get; set; } = "\\actions.log";
+
+        /// <summary>
+        /// Путь к стартовому скрипту
+        /// </summary>
+        internal static string? StartupPath { get; set; }
     }
 }

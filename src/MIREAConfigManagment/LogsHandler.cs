@@ -15,7 +15,7 @@ namespace MIREAConfigManagment
             {
                 try
                 {
-                    Global.Logs = JsonSerializer.Deserialize<List<LogModel>>(Global.LogPath) ?? new();
+                    Global.Logs = JsonSerializer.Deserialize<List<LogModel>>(File.ReadAllText(Global.LogPath)) ?? new();
                 }
                 catch (JsonException)
                 {

@@ -8,6 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <InternalsVisibleTo Include="REPLTests"/>
+	  <InternalsVisibleTo Include="REPLTests" />
   </ItemGroup>
 </Project>

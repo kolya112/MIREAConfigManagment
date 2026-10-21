@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MIREAConfigManagment.Models;
+using System;
 
 namespace MIREAConfigManagment.Commands
 {
@@ -30,21 +31,30 @@ namespace MIREAConfigManagment.Commands
             switch (command)
             {
                 case "ls":
+                    LogsHandler.PushLog(command, args);
                     FSCommands.Ls(args);
                     break;
                 case "cd":
+                    LogsHandler.PushLog(command, args);
                     FSCommands.Cd(args);
                     break;
                 case "exit":
+                    LogsHandler.PushLog(command, args);
                     Environment.Exit(0);
                     break;
                 case "echo":
                     if (args.Length > 0)
+                    {
+                        LogsHandler.PushLog(command, args);
                         Console.WriteLine(string.Join(' ', args));
+                    }
                     break;
                 case "regvar":
                     if (args.Length == TWO)
+                    {
+                        LogsHandler.PushLog(command, args);
                         Environment.SetEnvironmentVariable(args[0], args[1]);
+                    }
                     break;
                 default:
                     Console.WriteLine("Command not found");

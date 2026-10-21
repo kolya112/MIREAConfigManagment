@@ -10,6 +10,8 @@ namespace MIREAConfigManagment
         /// </summary>
         internal void Start()
         {
+            LogsHandler.InitLogFile();
+
             while (true)
             {
                 Console.Write(Global.Prompt);

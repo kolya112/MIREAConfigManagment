@@ -1,4 +1,5 @@
 ﻿using System;
+using MIREAConfigManagment.Models;
 
 namespace MIREAConfigManagment
 {
@@ -33,5 +34,10 @@ namespace MIREAConfigManagment
         /// Путь к стартовому скрипту
         /// </summary>
         internal static string? StartupPath { get; set; }
+
+        /// <summary>
+        /// Актуальный лог событий терминала
+        /// </summary>
+        internal static List<LogModel> Logs { get; set; } = new();
     }
 }

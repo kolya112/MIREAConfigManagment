@@ -1,0 +1,3 @@
+echo BEFORE_UNKNOWN
+unknown_stage2_command
+echo AFTER_UNKNOWN

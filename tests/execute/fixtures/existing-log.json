@@ -1,0 +1,9 @@
+[
+  {
+    "Command": "echo",
+    "Arguments": [
+      "PREVIOUS_SESSION"
+    ],
+    "Timestamp": "2026-10-21T12:00:00+03:00"
+  }
+]

@@ -1,0 +1,2 @@
+echo INTERACTIVE_FALLBACK
+exit

@@ -1,0 +1,2 @@
+echo STARTUP_SPACES
+ls /home

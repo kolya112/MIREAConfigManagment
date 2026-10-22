@@ -11,6 +11,7 @@ namespace MIREAConfigManagment
         internal void Start()
         {
             LogsHandler.InitLogFile();
+            HandleStartupFile();
 
             while (true)
             {
@@ -38,6 +39,24 @@ namespace MIREAConfigManagment
             {
                 return Environment.GetEnvironmentVariable(match.Groups[1].Value) ?? "";
             });
+        }
+
+        private static void HandleStartupFile()
+        {
+            if (!string.IsNullOrEmpty(Global.StartupPath))
+            {
+                if (File.Exists(Global.StartupPath))
+                {
+                    string[] startupCommands = File.ReadAllLines(Global.StartupPath);
+                    foreach (string command in startupCommands)
+                    {
+                        Console.Write(Global.Prompt);
+                        Console.WriteLine(command);
+                        string resolvedCommand = ResolveEnvVariables(command);
+                        Commands.CommandsEngine.Parse(resolvedCommand);
+                    }
+                }
+            }
         }
     }
 }

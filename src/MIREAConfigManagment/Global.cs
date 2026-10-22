@@ -18,7 +18,7 @@ namespace MIREAConfigManagment
         /// <summary>
         /// Путь к VFS
         /// </summary>
-        internal static string VFSPath { get; set; } = "\\main.vfs";
+        internal static string VFSPath { get; set; } = "main.vfs";
 
         /// <summary>
         /// Приглашение к вводу
@@ -28,7 +28,7 @@ namespace MIREAConfigManagment
         /// <summary>
         /// Путь к лог-файлу
         /// </summary>
-        internal static string LogPath { get; set; } = "\\actions.log";
+        internal static string LogPath { get; set; } = "actions.log";
 
         /// <summary>
         /// Путь к стартовому скрипту

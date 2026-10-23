@@ -39,5 +39,15 @@ namespace MIREAConfigManagment
         /// Актуальный лог событий терминала
         /// </summary>
         internal static List<LogModel> Logs { get; set; } = new();
+
+        /// <summary>
+        /// Корневая директория
+        /// </summary>
+        internal static DirectoryModel RootDirectory { get; set; } = new() { Name = "Root" };
+
+        /// <summary>
+        /// Текущая директория
+        /// </summary>
+        internal static DirectoryModel CurrentDirectory { get; set; } = RootDirectory;
     }
 }

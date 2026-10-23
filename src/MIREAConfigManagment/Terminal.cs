@@ -11,6 +11,7 @@ namespace MIREAConfigManagment
         internal void Start()
         {
             LogsHandler.InitLogFile();
+            VFS.InitVFSFile();
             HandleStartupFile();
 
             while (true)
@@ -41,6 +42,9 @@ namespace MIREAConfigManagment
             });
         }
 
+        /// <summary>
+        /// Обработка стартового скрипта
+        /// </summary>
         private static void HandleStartupFile()
         {
             if (!string.IsNullOrEmpty(Global.StartupPath))

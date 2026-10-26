@@ -1,0 +1,18 @@
+{
+  "Name": "/",
+  "Directories": [],
+  "Files": [
+    {
+      "Name": "readme.txt",
+      "Content": "SGVsbG8K"
+    },
+    {
+      "Name": "LICENSE",
+      "Content": "VGVzdAo="
+    },
+    {
+      "Name": "data.bin",
+      "Content": "AAECA/8="
+    }
+  ]
+}

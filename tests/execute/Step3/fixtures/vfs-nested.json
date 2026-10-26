@@ -1,0 +1,43 @@
+{
+  "Name": "/",
+  "Directories": [
+    {
+      "Name": "docs",
+      "Directories": [
+        {
+          "Name": "projects",
+          "Directories": [
+            {
+              "Name": "demo",
+              "Directories": [],
+              "Files": [
+                {
+                  "Name": "data.bin",
+                  "Content": "AAECA/8="
+                }
+              ]
+            }
+          ],
+          "Files": [
+            {
+              "Name": "notes.txt",
+              "Content": "VGVzdAo="
+            }
+          ]
+        }
+      ],
+      "Files": [
+        {
+          "Name": "readme.txt",
+          "Content": "SGVsbG8K"
+        }
+      ]
+    }
+  ],
+  "Files": [
+    {
+      "Name": "root.txt",
+      "Content": "SGVsbG8K"
+    }
+  ]
+}

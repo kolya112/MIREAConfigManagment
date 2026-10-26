@@ -1,0 +1,21 @@
+regvar STAGE3_HOME /docs
+echo START_STAGE3
+echo $STAGE3_HOME
+ls
+ls /
+cd /
+ls /docs
+cd $STAGE3_HOME
+ls .
+cd projects
+ls demo
+cd /docs/projects/demo
+ls
+cd ..
+cd /
+ls /missing
+cd /missing
+unknown_stage3_command
+regvar STAGE3_HOME
+echo AFTER_ERRORS
+exit

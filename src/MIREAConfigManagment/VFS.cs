@@ -146,6 +146,12 @@ namespace MIREAConfigManagment
             return FindFile(path);
         }
 
+        /// <summary>
+        /// Перемещение директории или файла
+        /// </summary>
+        /// <param name="fromPath">Исходный путь</param>
+        /// <param name="toPath">Путь назначения</param>
+        /// <returns>Результат перемещения MoveResult</returns>
         internal static MoveResult MoveEntry(string fromPath, string toPath)
         {
             if (string.IsNullOrEmpty(fromPath) || string.IsNullOrEmpty(toPath))

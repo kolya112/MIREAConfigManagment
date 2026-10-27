@@ -146,7 +146,7 @@ namespace MIREAConfigManagment
         }
 
         /// <summary>
-        /// 
+        /// Рекурсивный поиск файлов внутри директории
         /// </summary>
         /// <param name="dir"></param>
         /// <returns></returns>

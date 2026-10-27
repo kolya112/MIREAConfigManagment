@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MIREAConfigManagment.Models;
+using System;
+using System.Text;
 
 namespace MIREAConfigManagment.Commands
 {
-    internal class FSCommands
+    internal static class FSCommands
     {
         /// <summary>
         /// Метод выполнения команды ls
@@ -10,11 +12,36 @@ namespace MIREAConfigManagment.Commands
         /// <param name="args">аргументы</param>
         internal static void Ls(string[] args)
         {
-            string output = "ls";
-            foreach (string arg in args)
-                output += " " + arg;
+            // Определение директории для сканирования
+            DirectoryModel directoryForScan;
 
-            Console.WriteLine(output);
+            if (args.Length == 0 || string.IsNullOrEmpty(args[0]))
+                directoryForScan = Global.CurrentDirectory;
+            else
+            {
+                var findedDir = VFS.FindDirectory(args[0]);
+                if (findedDir == null)
+                {
+                    Console.WriteLine("Директория по указанному пути не найдена");
+                    return;
+                }
+                else
+                    directoryForScan = findedDir;
+            }
+
+            // Сканирование директории на поддиректории
+            var strBuilder = new StringBuilder("Директории:" + Environment.NewLine);
+
+            foreach (DirectoryModel dir in directoryForScan.Directories)
+                strBuilder.Append(dir.Name).Append(' ');
+
+            // Сканирование директории на файлы
+            strBuilder.Append(Environment.NewLine).AppendLine("Файлы:");
+
+            foreach (FileModel file in directoryForScan.Files)
+                strBuilder.Append(file.Name).Append(' ');
+
+            Console.WriteLine(strBuilder.ToString());
         }
 
         /// <summary>

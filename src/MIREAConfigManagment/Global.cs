@@ -3,7 +3,7 @@ using MIREAConfigManagment.Models;
 
 namespace MIREAConfigManagment
 {
-    internal class Global
+    internal static class Global
     {
         /// <summary>
         /// Имя пользователя

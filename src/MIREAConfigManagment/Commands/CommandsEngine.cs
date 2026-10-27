@@ -1,9 +1,8 @@
-﻿using MIREAConfigManagment.Models;
-using System;
+﻿using System;
 
 namespace MIREAConfigManagment.Commands
 {
-    internal class CommandsEngine
+    internal static class CommandsEngine
     {
         private const int TWO = 2;
 
@@ -31,8 +30,11 @@ namespace MIREAConfigManagment.Commands
             switch (command)
             {
                 case "ls":
-                    LogsHandler.PushLog(command, args);
-                    FSCommands.Ls(args);
+                    if (args.Length < TWO)
+                    {
+                        LogsHandler.PushLog(command, args);
+                        FSCommands.Ls(args);
+                    }
                     break;
                 case "cd":
                     LogsHandler.PushLog(command, args);

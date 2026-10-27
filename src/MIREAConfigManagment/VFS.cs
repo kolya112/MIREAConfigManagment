@@ -146,6 +146,24 @@ namespace MIREAConfigManagment
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <returns></returns>
+        internal static IEnumerable<FileModel> FindFilesRecursive(DirectoryModel dir)
+        {
+            List<FileModel> files = new();
+
+            foreach (FileModel subFile in dir.Files)
+                files.Add(subFile);
+
+            foreach (DirectoryModel subDir in dir.Directories)
+                files.AddRange(FindFilesRecursive(subDir));
+
+            return files;
+        }
+
+        /// <summary>
         /// Перемещение директории или файла
         /// </summary>
         /// <param name="fromPath">Исходный путь</param>

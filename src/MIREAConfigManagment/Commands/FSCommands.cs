@@ -50,11 +50,17 @@ namespace MIREAConfigManagment.Commands
         /// <param name="args">аргументы</param>
         internal static void Cd(string[] args)
         {
-            string output = "cd";
-            foreach (string arg in args)
-                output += " " + arg;
+            if (string.IsNullOrEmpty(args[0]))
+            {
+                Console.WriteLine("Указан некорректный путь к директории");
+                return;
+            }
 
-            Console.WriteLine(output);
+            DirectoryModel? foundedDir = VFS.FindDirectory(args[0]);
+            if (foundedDir != null)
+                Global.CurrentDirectory = foundedDir;
+            else
+                Console.WriteLine("Директории по указанному пути не существует");
         }
     }
 }

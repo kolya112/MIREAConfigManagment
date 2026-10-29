@@ -1,0 +1,88 @@
+echo START_STAGE5
+ls /
+du /
+echo FILE_MOVES
+mv /root.txt /archive
+ls /
+ls /archive
+du /archive/root.txt
+du /root.txt
+mv /archive/root.txt /archive/renamed.txt
+ls /archive
+mv /archive/renamed.txt /renamed-root.txt
+ls /
+cd /archive
+mv /renamed-root.txt local.txt
+mv local.txt ./local-renamed.txt
+ls .
+mv ./local-renamed.txt ../final.txt
+cd /
+du /final.txt
+mv /LICENSE /archive
+mv /empty.txt /archive/empty.txt
+ls /archive
+du /archive/LICENSE
+du /archive/empty.txt
+echo DIRECTORY_MOVES
+mv /docs/projects /archive
+ls /docs
+ls /archive
+du /archive/projects
+cd /archive/projects/demo
+ls
+cd ..
+ls
+cd ..
+ls
+cd /
+mv /archive/projects /archive/work
+ls /archive
+mv /archive/work /work
+ls /
+cd /archive
+mv /work workspace
+ls .
+mv workspace ./renamed-workspace
+ls .
+mv ./renamed-workspace ../final-work
+cd /
+ls /final-work
+du /final-work
+mv /empty /archive
+ls /archive
+du /archive/empty
+echo ERROR_CASES
+mv
+mv /final.txt
+mv /final.txt /archive extra
+mv /missing /archive
+mv /missing-dir /newdir
+mv /final.txt /missing/final.txt
+mv /final-work /missing/work
+mv /final.txt /missing/
+mv /final.txt/ /archive
+mv / /archive
+mv /final-work /final-work
+mv /final-work /final-work/demo
+mv /final-work /final-work/inside
+mv /final-work /final-work/demo/inside
+cd /final-work/demo
+mv /final-work relative-work
+cd /
+mv /final.txt /final.txt
+mv /final.txt /archive/LICENSE
+mv /final.txt /archive
+mv /final-work /archive
+mv /final-work /archive/LICENSE
+echo AFTER_ERRORS
+ls /
+ls /docs
+ls /archive
+ls /final-work/demo
+du /final.txt
+du /docs
+du /archive
+du /final-work
+du /
+history
+exit

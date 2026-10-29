@@ -7,12 +7,9 @@ namespace MIREAConfigManagment
         static void Main(string[] args)
         {
             Console.Title = "REPL";
-
-            // Обработка аргументов, если они переданы
             // 1) VFS; 2) Prompt; 3) Log-file; 4) Startup-file
             if (args.Length > 4)
                 throw new ArgumentOutOfRangeException(nameof(args), "Ожидалось не более 4 параметров");
-
             if (args.Length > 0)
             {
                 var paramsOutputBuilder = new StringBuilder("Parameters:");

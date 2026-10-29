@@ -24,7 +24,7 @@ namespace MIREAConfigManagment
             {
                 try
                 {
-                    DirectoryModel? rootDir = JsonSerializer.Deserialize<DirectoryModel>(File.ReadAllText(Global.VFSPath));
+                    var rootDir = JsonSerializer.Deserialize<DirectoryModel>(File.ReadAllText(Global.VFSPath));
                     if (rootDir != null)
                     {
                         Global.RootDirectory = rootDir;

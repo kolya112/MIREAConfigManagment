@@ -31,25 +31,16 @@ namespace MIREAConfigManagment.Commands
             switch (command)
             {
                 case "ls":
-                    if (args.Length < TWO)
-                    {
-                        LogsHandler.PushLog(command, args);
-                        FSCommands.Ls(args);
-                    }
+                    LogsHandler.PushLog(command, args);
+                    FSCommands.Ls(args);
                     break;
                 case "cd":
-                    if (args.Length == 1)
-                    {
-                        LogsHandler.PushLog(command, args);
-                        FSCommands.Cd(args);
-                    }
+                    LogsHandler.PushLog(command, args);
+                    FSCommands.Cd(args);
                     break;
                 case "du":
-                    if (args.Length < TWO)
-                    {
-                        LogsHandler.PushLog(command, args);
-                        FSCommands.Du(args);
-                    }
+                    LogsHandler.PushLog(command, args);
+                    FSCommands.Du(args);
                     break;
                 case "exit":
                     LogsHandler.PushLog(command, args);
@@ -57,21 +48,14 @@ namespace MIREAConfigManagment.Commands
                     break;
                 case "echo":
                     if (args.Length > 0)
-                    {
-                        LogsHandler.PushLog(command, args);
-                        Console.WriteLine(string.Join(' ', args));
-                    }
+                    { LogsHandler.PushLog(command, args); Console.WriteLine(string.Join(' ', args)); }
                     break;
                 case "regvar":
                     if (args.Length == TWO)
-                    {
-                        LogsHandler.PushLog(command, args);
-                        Environment.SetEnvironmentVariable(args[0], args[1]);
-                    }
+                    { LogsHandler.PushLog(command, args); Environment.SetEnvironmentVariable(args[0], args[1]); }
                     break;
                 default:
-                    Console.WriteLine("Command not found");
-                    break;
+                    Console.WriteLine("Command not found"); break;
             }
         }
     }

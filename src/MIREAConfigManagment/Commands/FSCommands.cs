@@ -12,6 +12,9 @@ namespace MIREAConfigManagment.Commands
         /// <param name="args">аргументы</param>
         internal static void Ls(string[] args)
         {
+            if (!(args.Length < CommandsEngine.TWO))
+                return;
+
             // Определение директории для сканирования
             DirectoryModel directoryForScan;
 
@@ -50,7 +53,7 @@ namespace MIREAConfigManagment.Commands
         /// <param name="args">аргументы</param>
         internal static void Cd(string[] args)
         {
-            if (string.IsNullOrEmpty(args[0]))
+            if (args.Length != 1 || string.IsNullOrEmpty(args[0]))
             {
                 Console.WriteLine("Указан некорректный путь к директории");
                 return;
@@ -69,6 +72,9 @@ namespace MIREAConfigManagment.Commands
         /// <param name="args">аргументы</param>
         internal static void Du(string[] args)
         {
+            if (!(args.Length < CommandsEngine.TWO))
+                return;
+
             object? vfsObject;
 
             if (args.Length == 0 || string.IsNullOrEmpty(args[0]))

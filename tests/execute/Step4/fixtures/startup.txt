@@ -1,0 +1,56 @@
+echo START_STAGE4
+ls
+du
+ls /
+du /
+ls /empty
+du /empty
+du /empty.txt
+du /root.txt
+du /LICENSE
+du /docs/projects/demo/data.bin
+cd /docs
+ls
+ls .
+ls projects
+ls projects/
+ls ./projects
+ls /docs//projects/demo/
+du
+du readme.txt
+du projects
+cd projects/demo
+ls
+du
+du data.bin
+cd ..
+ls
+cd ../..
+ls
+cd /
+cd ..
+ls
+cd .
+du .
+du ..
+echo Hello world
+echo
+regvar STAGE4_HOME /docs
+echo $STAGE4_HOME
+cd $STAGE4_HOME
+du
+echo ERROR_CASES
+ls /missing
+ls /root.txt
+ls / /docs
+cd
+cd /missing
+cd /root.txt
+cd / /docs
+du /missing
+du /missing.txt
+du / /docs
+unknown_stage4_command
+echo AFTER_ERRORS
+history
+exit

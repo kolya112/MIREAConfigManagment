@@ -15,7 +15,6 @@ namespace MIREAConfigManagment.Commands
             if (!(args.Length < CommandsEngine.TWO))
                 return;
 
-            // Определение директории для сканирования
             DirectoryModel directoryForScan;
 
             if (args.Length == 0 || string.IsNullOrEmpty(args[0]))
@@ -32,13 +31,11 @@ namespace MIREAConfigManagment.Commands
                     directoryForScan = findedDir;
             }
 
-            // Сканирование директории на поддиректории
             var strBuilder = new StringBuilder("Директории:" + Environment.NewLine);
 
             foreach (DirectoryModel dir in directoryForScan.Directories)
                 strBuilder.Append(dir.Name).Append(' ');
 
-            // Сканирование директории на файлы
             strBuilder.Append(Environment.NewLine).AppendLine("Файлы:");
 
             foreach (FileModel file in directoryForScan.Files)

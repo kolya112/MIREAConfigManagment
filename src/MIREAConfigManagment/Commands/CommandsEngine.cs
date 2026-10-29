@@ -43,6 +43,13 @@ namespace MIREAConfigManagment.Commands
                         FSCommands.Cd(args);
                     }
                     break;
+                case "du":
+                    if (args.Length < TWO)
+                    {
+                        LogsHandler.PushLog(command, args);
+                        FSCommands.Du(args);
+                    }
+                    break;
                 case "exit":
                     LogsHandler.PushLog(command, args);
                     Environment.Exit(0);

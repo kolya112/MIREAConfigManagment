@@ -1,5 +1,5 @@
-﻿using MIREAConfigManagment.Models;
-using System;
+﻿using System;
+using MIREAConfigManagment.Models;
 using System.Text;
 
 namespace MIREAConfigManagment.Commands
@@ -61,6 +61,32 @@ namespace MIREAConfigManagment.Commands
                 Global.CurrentDirectory = foundedDir;
             else
                 Console.WriteLine("Директории по указанному пути не существует");
+        }
+
+        /// <summary>
+        /// Метод выполнения команды du
+        /// </summary>
+        /// <param name="args">аргументы</param>
+        internal static void Du(string[] args)
+        {
+            // Определение директории для сканирования
+            DirectoryModel directoryForScan;
+
+            if (args.Length == 0 || string.IsNullOrEmpty(args[0]))
+                directoryForScan = Global.CurrentDirectory;
+            else
+            {
+                var findedDir = VFS.FindDirectory(args[0]);
+                if (findedDir == null)
+                {
+                    Console.WriteLine("Директория по указанному пути не найдена");
+                    return;
+                }
+                else
+                    directoryForScan = findedDir;
+            }
+
+
         }
     }
 }

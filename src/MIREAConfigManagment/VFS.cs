@@ -28,6 +28,7 @@ namespace MIREAConfigManagment
                     if (rootDir != null)
                     {
                         Global.RootDirectory = rootDir;
+                        Global.CurrentDirectory = rootDir;
                         RestoreHeads();
                     }
                     else

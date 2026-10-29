@@ -69,24 +69,32 @@ namespace MIREAConfigManagment.Commands
         /// <param name="args">аргументы</param>
         internal static void Du(string[] args)
         {
-            // Определение директории для сканирования
-            DirectoryModel directoryForScan;
+            object? vfsObject;
 
             if (args.Length == 0 || string.IsNullOrEmpty(args[0]))
-                directoryForScan = Global.CurrentDirectory;
+                vfsObject = Global.CurrentDirectory;
             else
+                vfsObject = VFS.FindEntry(args[0]);
+
+            if (vfsObject is DirectoryModel dir)
             {
-                var findedDir = VFS.FindDirectory(args[0]);
-                if (findedDir == null)
+                var filesInDir = VFS.FindFilesRecursive(dir);
+                var strBuilder = new StringBuilder($"Размер файлов в директории {dir.Name}:{Environment.NewLine}");
+                long totalBytes = 0;
+                int index = 0;
+                foreach (FileModel file in filesInDir)
                 {
-                    Console.WriteLine("Директория по указанному пути не найдена");
-                    return;
+                    index++;
+                    totalBytes += file.Content.LongLength;
+                    strBuilder.Append(index + " " + file.Name + " ").AppendLine(file.Content.LongLength.ToString());
                 }
-                else
-                    directoryForScan = findedDir;
+                strBuilder.Append($"Всего файлов: {index} | Общий размер: {totalBytes} байт");
+                Console.WriteLine(strBuilder.ToString());
             }
-
-
+            else if (vfsObject is FileModel file)
+                Console.WriteLine($"Размер файла {file.Name}: {file.Content.LongLength} байт");
+            else
+                Console.WriteLine("Директория или файл по указанному пути не найдена");
         }
     }
 }

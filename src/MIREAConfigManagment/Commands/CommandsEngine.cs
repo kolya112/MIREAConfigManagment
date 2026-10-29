@@ -4,7 +4,7 @@ namespace MIREAConfigManagment.Commands
 {
     internal static class CommandsEngine
     {
-        private const int TWO = 2;
+        internal const int TWO = 2;
 
         /// <summary>
         /// Метод запуска командного движка: парсит входную строку
@@ -27,6 +27,7 @@ namespace MIREAConfigManagment.Commands
         /// <param name="args">аргументы</param>
         private static void Execute(string command, string[] args)
         {
+            Global.CommandsHistory.Add($"{command} {string.Join(' ', args)}");
             switch (command)
             {
                 case "ls":

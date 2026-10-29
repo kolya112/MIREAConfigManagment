@@ -49,5 +49,10 @@ namespace MIREAConfigManagment
         /// Текущая директория
         /// </summary>
         internal static DirectoryModel CurrentDirectory { get; set; } = RootDirectory;
+
+        /// <summary>
+        /// История введенных пользователем команд
+        /// </summary>
+        internal static List<string> CommandsHistory { get; set; } = new();
     }
 }

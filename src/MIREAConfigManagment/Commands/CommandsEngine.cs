@@ -42,6 +42,10 @@ namespace MIREAConfigManagment.Commands
                     LogsHandler.PushLog(command, args);
                     FSCommands.Du(args);
                     break;
+                case "mv":
+                    LogsHandler.PushLog(command, args);
+                    FSCommands.Mv(args);
+                    break;
                 case "history":
                     LogsHandler.PushLog(command, args);
                     foreach (string historyRecord in Global.CommandsHistory)

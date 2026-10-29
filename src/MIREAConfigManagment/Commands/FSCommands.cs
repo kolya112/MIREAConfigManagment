@@ -102,5 +102,35 @@ namespace MIREAConfigManagment.Commands
             else
                 Console.WriteLine("Директория или файл по указанному пути не найдена");
         }
+
+        /// <summary>
+        /// Метод выполнения команды mv
+        /// </summary>
+        /// <param name="args">аргументы</param>
+        internal static void Mv(string[] args)
+        {
+            if (args.Length != CommandsEngine.TWO || string.IsNullOrEmpty(args[0]) || string.IsNullOrEmpty(args[1]))
+            { Console.WriteLine("Переданы некорректные аргументы: mv <откуда> <куда>"); return; }
+
+            var moveResult = VFS.MoveEntry(args[0], args[1]);
+            switch (moveResult)
+            {
+                case VFS.MoveResult.Success:
+                    Console.WriteLine("Перемещение выполнено");
+                    break;
+                case VFS.MoveResult.PathNullOrEmpty:
+                    Console.WriteLine("Передан некорректный путь");
+                    break;
+                case VFS.MoveResult.NotFound:
+                    Console.WriteLine("Директория либо файл по указанному пути не найден (-а)");
+                    break;
+                case VFS.MoveResult.Dublicate:
+                    Console.WriteLine("При перемещении был обнаружен объект-дубликат. Перемещение отменено.");
+                    break;
+                case VFS.MoveResult.Restricted:
+                    Console.WriteLine("Ошибка доступа к объекту при выполнении перемещения");
+                    break;
+            }
+        }
     }
 }

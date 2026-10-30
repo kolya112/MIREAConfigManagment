@@ -7,8 +7,6 @@ namespace MIREAConfigManagment
         static void Main(string[] args)
         {
             Console.Title = "REPL";
-
-            // Обработка аргументов, если они переданы
             // 1) VFS; 2) Prompt; 3) Log-file; 4) Startup-file
             if (args.Length > 4)
                 throw new ArgumentOutOfRangeException(nameof(args), "Ожидалось не более 4 параметров");
@@ -24,16 +22,16 @@ namespace MIREAConfigManagment
 
                     switch (i)
                     {
-                        case 0: // VFS
+                        case 0:
                             Global.VFSPath = param;
                             break;
-                        case 1: // Prompt
+                        case 1:
                             Global.Prompt = param;
                             break;
-                        case 2: // Log-file
+                        case 2:
                             Global.LogPath = param;
                             break;
-                        case 3: // Startup-file
+                        case 3:
                             if (!File.Exists(param))
                                 throw new FileNotFoundException("Указанный стартовый скрипт не найден");
 
@@ -42,9 +40,8 @@ namespace MIREAConfigManagment
                     }
                 }
 
-                Console.WriteLine(paramsOutputBuilder.ToString()); // Debug вывод всех параметров
+                Console.WriteLine(paramsOutputBuilder.ToString());
             }
-
             var terminal = new Terminal();
             terminal.Start();
         }

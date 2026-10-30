@@ -4,11 +4,12 @@ namespace MIREAConfigManagment
 {
     internal class Program
     {
+        private const int FOUR = 4;
+
         static void Main(string[] args)
         {
             Console.Title = "REPL";
-            // 1) VFS; 2) Prompt; 3) Log-file; 4) Startup-file
-            if (args.Length > 4)
+            if (args.Length > FOUR)
                 throw new ArgumentOutOfRangeException(nameof(args), "Ожидалось не более 4 параметров");
 
             if (args.Length > 0)
